@@ -1,0 +1,3 @@
+publicar.yml va en .github/workflows/publicar.yml dentro del repositorio de GitHub.
+Desde aquí no se pudo crear la carpeta .github (es una carpeta protegida), así que vive aquí mientras tanto.
+Cuando subamos el sitio a GitHub, se coloca en su lugar.
