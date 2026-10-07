@@ -1,0 +1,6 @@
+Pon aquí las fotos de la página de Fotografía.
+
+- Formatos: JPG, PNG o WEBP (HEIC no; exporta como JPG).
+- Cada vez que alguien entra a la página salen en un orden distinto.
+- Al publicar en GitHub, las fotos se reducen solas a 1600 px para que el sitio cargue rápido. Tus originales en este folder no se tocan.
+- Para quitar una foto, sácala de aquí.
