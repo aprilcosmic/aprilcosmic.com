@@ -22,6 +22,7 @@ jobs:
 
       - name: Preparar sitio, reducir fotos y armar la galería
         run: |
+          command -v mogrify >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick)
           mkdir -p _site
           rsync -a --exclude '.git' --exclude '.github' --exclude '_site' --exclude 'config-github' ./ _site/
           cd _site
