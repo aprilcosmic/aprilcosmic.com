@@ -1,9 +1,13 @@
 /* ==========================================================
    AprilCosmic.com
-   Tipografía: Geist Mono (Vercel, licencia SIL OFL 1.1)
+   Tipografía: BB Manual Mono Pro Original
+   (revisar licencia web antes de publicar)
    ========================================================== */
 
-@font-face { font-family: "Geist Mono"; src: url("../fonts/GeistMono-Variable.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "BB Manual Mono"; src: url("../fonts/bbmanualmono-original-regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "BB Manual Mono"; src: url("../fonts/bbmanualmono-original-medium.otf") format("opentype"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "BB Manual Mono"; src: url("../fonts/bbmanualmono-original-bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "BB Manual Mono"; src: url("../fonts/bbmanualmono-original-super.otf") format("opentype"); font-weight: 800; font-display: swap; }
 
 :root {
   --claro: #F7F7F7;
@@ -23,7 +27,7 @@ body {
   margin: 0;
   background: var(--claro);
   color: var(--tinta);
-  font-family: "Geist Mono", ui-monospace, Menlo, monospace;
+  font-family: "BB Manual Mono", ui-monospace, Menlo, monospace;
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -306,3 +310,8 @@ body.saliendo { opacity: 0; transition: opacity .35s ease; }
   .contador span:last-child { display: none; }
   :root { --pad: 20px; }
 }
+
+/* Portadas de podcasts */
+.portada-pod { width: min(300px, 100%); aspect-ratio: 1 / 1; margin: 8px 0 20px; }
+.oscura .cortina::after { background: var(--tinta); }
+.oscura .portada-pod { background: #1C1C1C; }

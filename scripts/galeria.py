@@ -2,7 +2,7 @@
 """Lee fotos/galeria/ y escribe assets/js/galeria.js con la lista de fotos y su tamaño.
 GitHub lo corre solo en cada publicación; no hace falta tocarlo.
 El tamaño sirve para apartar el espacio de cada foto antes de que cargue."""
-import json, os, shutil, subprocess
+import json, os, shutil, subprocess, unicodedata
 
 raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 carpeta = os.path.join(raiz, "fotos", "galeria")
@@ -33,6 +33,13 @@ def medidas(ruta):
 
 
 nombres = sorted(n for n in os.listdir(carpeta) if n.lower().endswith(ext)) if os.path.isdir(carpeta) else []
+# Una foto con acentos puede existir dos veces con el mismo nombre escrito distinto (Mac vs web). Se cuenta una sola vez.
+vistos, unicos = set(), []
+for n in nombres:
+    clave = unicodedata.normalize("NFC", n).lower()
+    if clave not in vistos:
+        vistos.add(clave); unicos.append(n)
+nombres = unicos
 fotos = []
 for n in nombres:
     m = medidas(os.path.join(carpeta, n))
