@@ -207,8 +207,22 @@ body.oscuro .cabecera { background: rgba(16, 16, 16, .9); }
 .entrada .proyecto { font-weight: 800; font-size: clamp(32px, 4vw, 56px); line-height: .9; letter-spacing: -.04em; text-transform: uppercase; margin: 0 0 10px; }
 .entrada .rol { margin: 0 0 12px; }
 .entrada div > p:nth-of-type(3) { max-width: 64ch; }
+/* Proyectos con video: miniatura chica a la derecha del texto */
+.entrada.con-video { grid-template-columns: 110px minmax(0, 1fr) 240px; }
+.entrada .proyecto a { text-decoration: none; }
+.entrada .proyecto .flecha { font-size: .45em; vertical-align: .9em; opacity: 0; transition: opacity .3s; }
+.entrada .proyecto a:hover .flecha { opacity: 1; }
+.mini-video { display: block; aspect-ratio: 16 / 9; align-self: start; margin-top: 6px; }
+.mini-video img { position: absolute; inset: 0; }
+.mini-video .play {
+  position: absolute; left: 8px; bottom: 8px; padding: 4px 8px;
+  background: var(--tinta); color: var(--claro); text-decoration: none;
+  transition: background .3s, color .3s;
+}
+.mini-video:hover .play { background: var(--claro); color: var(--tinta); }
 @media (max-width: 900px) {
-  .dos, .entrada { grid-template-columns: minmax(0, 1fr); }
+  .dos, .entrada, .entrada.con-video { grid-template-columns: minmax(0, 1fr); }
+  .mini-video { width: min(320px, 100%); margin-top: 12px; }
   .fija { position: static; }
 }
 
@@ -315,4 +329,3 @@ body.saliendo { opacity: 0; transition: opacity .35s ease; }
 .portada-pod { width: min(300px, 100%); aspect-ratio: 1 / 1; margin: 8px 0 20px; }
 .oscura .cortina::after { background: var(--tinta); }
 .oscura .portada-pod { background: #1C1C1C; }
-.entrada-video { max-width: 760px; margin: 24px 0 0; }

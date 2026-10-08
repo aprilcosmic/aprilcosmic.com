@@ -95,6 +95,14 @@
     }
   }
 
+  /* Regla general: toda liga a otro sitio abre en pestaña nueva */
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    if (/^https?:/i.test(a.getAttribute('href')) && a.hostname !== location.hostname) {
+      a.target = '_blank';
+      if (!/noopener/.test(a.rel)) a.rel = (a.rel + ' noopener').trim();
+    }
+  });
+
   /* Titulares de portada: arrancan cuando la fuente ya cargó */
   function arrancar() { body.classList.add('listo'); }
   if (document.fonts && document.fonts.ready) {
