@@ -8,12 +8,12 @@ Sitio estático (HTML, CSS y JavaScript sin dependencias), listo para GitHub Pag
 - El botón ES / EN del encabezado lleva a la misma página en el otro idioma. Cada página le avisa a Google cuál es su versión en el otro idioma.
 - `assets/css/style.css`: todo el diseño y las animaciones
 - `assets/js/main.js`: revelados al hacer scroll, manifiesto que se enciende, encabezado que se esconde, transición entre páginas
-- `assets/fonts/`: BB Manual Mono Pro Original (Regular, Medium, Bold, Super)
+- `assets/fonts/`: Geist Mono variable (pesos 100 a 900), de Vercel, licencia SIL Open Font License 1.1 (ver `OFL-GeistMono.txt`). Libre para uso web y comercial.
 - `assets/img/retrato.jpg`
 - `CNAME`: dominio aprilcosmic.com
 
 ## Publicar en GitHub Pages
-1. Crea un repositorio nuevo en GitHub (por ejemplo `aprilcosmic.com`) y sube todo el contenido de esta carpeta a la raíz, y copia `config-github/publicar.yml` a `.github/workflows/publicar.yml`.
+1. Crea un repositorio nuevo en GitHub (por ejemplo `aprilcosmic.com`) y sube todo el contenido de esta carpeta a la raíz. El flujo de publicación ya vive en `.github/workflows/publicar.yml`.
 2. En el repositorio: Settings > Pages > Build and deployment > Source: "GitHub Actions". Cada vez que subas cambios a `main`, el sitio se publica solo (reduce las fotos y arma la galería).
 3. En Custom domain escribe `aprilcosmic.com` (el archivo CNAME ya lo trae) y activa "Enforce HTTPS" cuando aparezca.
 4. En tu proveedor de dominio agrega los registros DNS que indica GitHub:
@@ -35,7 +35,7 @@ Pon o quita fotos en `fotos/galeria/` (JPG, PNG o WEBP). Las dos versiones del s
 Para verlas en tu compu antes de publicar, la lista se actualiza corriendo `python3 scripts/galeria.py`, o me lo pides.
 
 ## Antes de publicar
-- Licencia de la fuente: confirma que tu licencia de BB Manual Mono Pro incluye uso web. Si no, compra la licencia webfont o cambia la fuente en `style.css`.
+- Licencia de la fuente: Geist Mono es OFL, se puede servir desde el sitio sin problema. Mantén `OFL-GeistMono.txt` junto al archivo de la fuente.
 - Placeholders pendientes: kit de prensa, demo reel, fechas de tres balls como jueza y asistencia del conversatorio.
 
 - Revisa los textos en inglés, sobre todo tu ensayo de Sobre mí.
