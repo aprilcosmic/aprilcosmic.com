@@ -28,7 +28,7 @@
   if (destacado && items.length) {
     var a = items[0];
     destacado.innerHTML =
-      '<p class="mini">' + (ingles ? 'Now' : 'Ahora') + ' ↘ ' + esc(a.proyecto) + '</p>' +
+      '<p class="mini">' + (ingles ? 'Now' : 'Ahora') + ' ↘' + (a.proyecto !== campo(a, 'titulo') ? ' ' + esc(a.proyecto) : '') + '</p>' +
       '<p class="dato">' + esc(campo(a, 'titulo')) + '</p>' +
       '<a class="mini" style="display:inline-block;margin-top:6px" href="' + esc(a.liga) + '"' + externa(a.liga) + '>' + esc(campo(a, 'boton')) + ' ↗</a>';
   }
@@ -36,7 +36,7 @@
   if (lista) {
     lista.innerHTML = items.map(function (it, i) {
       return '<div class="revelar"' + (i ? ' data-retraso="' + Math.min(i, 3) + '"' : '') + '>' +
-        '<p class="mini" style="margin-bottom:8px">' + esc(it.proyecto) + '</p>' +
+        (it.proyecto !== campo(it, 'titulo') ? '<p class="mini" style="margin-bottom:8px">' + esc(it.proyecto) + '</p>' : '') +
         '<p class="dato" style="margin-bottom:10px">' + esc(campo(it, 'titulo')) + '</p>' +
         '<p class="gris-texto" style="margin-bottom:10px">' + esc(campo(it, 'texto')) + '</p>' +
         '<a class="mini" href="' + esc(it.liga) + '"' + externa(it.liga) + '>' + esc(campo(it, 'boton')) + ' ↗</a></div>';

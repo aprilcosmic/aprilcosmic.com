@@ -15,18 +15,18 @@
 window.AHORA = [
   {
     proyecto: "UltraLocal",
-    titulo: "Dommy Flores",
-    texto: "Último episodio, con la fundadora de La Petaka.",
-    texto_en: "Latest episode, with the founder of La Petaka.",
-    liga: "https://ultralocal.org/episodes/e17-dommy-flores/",
+    titulo: "UltraLocal",
+    texto: "Entrevistas con gente de Obregón con ideas alternativas. Último episodio: Dommy Flores.",
+    texto_en: "Interviews with people from Obregón with alternative ideas. Latest episode: Dommy Flores.",
+    liga: "https://ultralocal.org/",
     boton: "Escuchar",
     boton_en: "Listen"
   },
   {
     proyecto: "Jutonio",
-    titulo: "Cuerpos Imposibles",
-    texto: "Nuevo episodio: Cuerpos Imposibles, Soluciones Inyectables.",
-    texto_en: "New episode: Cuerpos Imposibles, Soluciones Inyectables.",
+    titulo: "Jutonio",
+    texto: "Comedia y lifestyle desde otro planeta, con Donny Valenzuela.",
+    texto_en: "Comedy and lifestyle from another planet, with Donny Valenzuela.",
     liga: "https://open.spotify.com/show/7to0cBcpx4GXVjg2qKK5vY",
     boton: "Escuchar en Spotify",
     boton_en: "Listen on Spotify"

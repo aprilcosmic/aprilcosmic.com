@@ -346,3 +346,16 @@ body.saliendo { opacity: 0; transition: opacity .35s ease; }
 }
 .cifra p.dato:last-child { font-size: 30px; }
 #dj-canciones .track:first-of-type .cancion { font-size: clamp(28px, 3.4vw, 48px); line-height: .9; }
+
+/* ---------- Inicio: lema y frase ---------- */
+.lema-fila { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 8px 32px; margin-top: 4px; }
+.lema { margin: 0; }
+.lema-fila .ubicacion { margin: 0 0 10px; }
+.lema-sub { margin: 14px 0 48px; }
+.frase-hero { font-weight: 800; font-size: clamp(20px, 2vw, 28px); line-height: 1.05; letter-spacing: -.02em; text-transform: uppercase; margin: 0; align-self: start; }
+.bio-inicio { max-width: 760px; }
+.dato.numero { font-size: clamp(48px, 6vw, 88px); line-height: .9; letter-spacing: -.05em; }
+.cifra p.dato.numero:last-child { font-size: clamp(48px, 6vw, 88px); }
+.cm-linea { margin: 40px 0 0; font-size: 17px; }
+.cm-linea a { font-weight: 700; }
+@media (max-width: 900px) { .frase-hero { margin-bottom: 8px; } }
