@@ -319,3 +319,30 @@ body.saliendo { opacity: 0; transition: opacity .35s ease; }
 .portada-pod { width: min(300px, 100%); aspect-ratio: 1 / 1; margin: 8px 0 20px; }
 .oscura .cortina::after { background: var(--tinta); }
 .oscura .portada-pod { background: #1C1C1C; }
+
+/* ---------- DJ ---------- */
+#sets { scroll-margin-top: 24px; }
+.dj-hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: end; }
+.dj-hero.con-foto { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
+.dj-hero .estilo { max-width: 26ch; margin: 0; }
+.dj-foto { max-width: 420px; justify-self: end; width: 100%; }
+.dj-bio { max-width: 920px; }
+.dj-bio .media { margin: 0 0 32px; }
+.dj-bio p:last-child { max-width: 60ch; font-size: 19px; line-height: 1.6; }
+.set-vibe { margin: 6px 0 0; font-size: 15px; }
+.dj-mix { margin: 0 0 48px; }
+.dj-mix iframe { width: 100%; border: 0; display: block; }
+.hechas-sec { padding-top: 0; }
+.hechas { list-style: none; margin: 0; padding: 0; max-width: 720px; counter-reset: hecha; }
+.hechas li { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 10px 0; border-top: 1px solid var(--linea-clara); counter-increment: hecha; }
+.hechas li::before { content: "0" counter(hecha); font-size: 13px; letter-spacing: .06em; }
+.hechas li:last-child { border-bottom: 1px solid var(--linea-clara); }
+.hechas b { font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: -.01em; }
+@media (max-width: 900px) {
+  .dj-hero.con-foto { grid-template-columns: minmax(0, 1fr); }
+  .dj-foto { justify-self: start; }
+  .hechas li { grid-template-columns: 32px minmax(0, 1fr); }
+  .hechas li .mini { grid-column: 2; }
+}
+.cifra p.dato:last-child { font-size: 30px; }
+#dj-canciones .track:first-of-type .cancion { font-size: clamp(28px, 3.4vw, 48px); line-height: .9; }

@@ -95,6 +95,70 @@
     }
   }
 
+  /* DJ: tocadas, mix y canciones desde assets/js/dj.js */
+  var dj = window.DJ;
+  if (dj) {
+    var meses = ingles
+      ? ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+      : ['', 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+    var tocadas = document.getElementById('dj-tocadas');
+    if (tocadas && dj.tocadas && dj.tocadas.length) {
+      var filas = dj.tocadas.slice().sort(function (a, b) {
+        return (b.anio || 0) - (a.anio || 0) || (b.mes || 0) - (a.mes || 0);
+      }).map(function (g) {
+        var lugar = g.liga ? '<a href="' + esc(g.liga) + '"' + externa(g.liga) + '>' + esc(g.lugar) + '</a>' : esc(g.lugar || '');
+        var fecha = (g.mes ? meses[g.mes] + ' ' : '') + (g.anio || '');
+        return '<tr><td>' + esc(g.evento) + '</td><td>' + lugar + '</td><td>' + esc(fecha) + '</td></tr>';
+      }).join('');
+      tocadas.innerHTML = '<div class="tabla revelar"><table><thead><tr><th>' + (ingles ? 'Event' : 'Evento') +
+        '</th><th>' + (ingles ? 'With / where' : 'Con / dónde') + '</th><th>' + (ingles ? 'Date' : 'Fecha') +
+        '</th></tr></thead><tbody>' + filas + '</tbody></table></div>';
+    }
+
+    var mix = document.getElementById('dj-mix');
+    if (mix && dj.mix && dj.mix.url) {
+      var u = dj.mix.url, src = '', alto = 166;
+      if (/soundcloud\.com/.test(u)) {
+        src = 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(u) + '&color=%23101010&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false';
+        /* Liga a un perfil completo (soundcloud.com/usuario): se ve la lista de mixes */
+        if (/^https?:\/\/(www\.)?soundcloud\.com\/[^\/?#]+\/?$/.test(u)) alto = 360;
+      } else if (/mixcloud\.com/.test(u)) {
+        var ruta = u.replace(/^https?:\/\/(www\.)?mixcloud\.com/, '');
+        src = 'https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=' + encodeURIComponent(ruta);
+        alto = 120;
+      }
+      if (src) {
+        mix.innerHTML = '<p class="mini" style="margin-bottom:12px">' + (ingles ? 'Latest mix' : 'Último mix') + ' ↘</p>' +
+          (dj.mix.titulo ? '<p class="set-titulo">' + esc(dj.mix.titulo) + '</p>' : '') +
+          '<iframe src="' + src + '" title="' + esc(dj.mix.titulo || 'Mix') + '" height="' + alto + '" loading="lazy" allow="autoplay"></iframe>' +
+          (campo(dj.mix, 'texto') ? '<p class="gris set-vibe">' + esc(campo(dj.mix, 'texto')) + '</p>' : '') +
+          '<a class="mini" style="display:inline-block;margin-top:12px" href="' + esc(u) + '" target="_blank" rel="noopener">' +
+          (/soundcloud/.test(u) ? 'SoundCloud' : 'Mixcloud') + ' ↗</a>';
+        mix.hidden = false;
+      }
+    }
+
+    var canciones = document.getElementById('dj-canciones');
+    if (canciones && dj.canciones && dj.canciones.length) {
+      canciones.innerHTML = dj.canciones.map(function (c, i) {
+        return '<div class="track revelar"><span class="mini">' + (i < 9 ? '0' : '') + (i + 1) + '</span><p class="cancion">' +
+          esc(c.cancion) + '</p><p class="mini suave">' + esc(c.artista) + '</p><p></p></div>';
+      }).join('');
+      document.getElementById('dj-escucha').hidden = false;
+    }
+  }
+
+  /* Contadores 1/5, 2/5...: se numeran solos según las secciones visibles */
+  var contar = document.querySelector('main[data-contar]');
+  if (contar) {
+    var nums = [];
+    contar.querySelectorAll('.contador .num').forEach(function (n) {
+      if (!n.closest('[hidden]')) nums.push(n);
+    });
+    nums.forEach(function (n, i) { n.textContent = (i + 1) + '/' + nums.length; });
+  }
+
   /* Regla general: toda liga a otro sitio abre en pestaña nueva */
   document.querySelectorAll('a[href]').forEach(function (a) {
     if (/^https?:/i.test(a.getAttribute('href')) && a.hostname !== location.hostname) {
