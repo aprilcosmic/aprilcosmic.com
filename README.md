@@ -36,7 +36,7 @@ Para verlas en tu compu antes de publicar, la lista se actualiza corriendo `pyth
 
 ## Antes de publicar
 - Licencia de la fuente: confirma que tu licencia de BB Manual Mono Pro incluye uso web. Si no, compra la licencia webfont o cambia la fuente en `style.css`.
-- Placeholders pendientes: kit de prensa y demo reel.
+- Sin pendientes de ligas: no hay kit de prensa ni demo reel.
 
 - Revisa los textos en inglés, sobre todo tu ensayo de Sobre mí.
 
