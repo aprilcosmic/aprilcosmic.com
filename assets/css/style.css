@@ -359,3 +359,4 @@ body.saliendo { opacity: 0; transition: opacity .35s ease; }
 .cm-linea { margin: 40px 0 0; font-size: 17px; }
 .cm-linea a { font-weight: 700; }
 @media (max-width: 900px) { .frase-hero { margin-bottom: 8px; } }
+.hechas .version, .hechas .nota { display: block; font-weight: 400; font-size: 13px; text-transform: none; letter-spacing: .02em; color: var(--gris); margin-top: 4px; }
