@@ -14,9 +14,8 @@
     Pega en url la liga de SoundCloud o Mixcloud. Mientras esté vacía,
     el espacio no aparece.
 
-  CANCIONES ("Lo que vas a escuchar" / "What you'll hear")
-    De 6 a 8 canciones que sí pones. Mientras la lista esté vacía,
-    la sección no aparece.
+  CANCIONES: viven en la página misma ("Canciones que me hicieron").
+    Para cambiarlas, pídemelo en el chat.
 */
 window.DJ = {
   mix: {
@@ -33,9 +32,5 @@ window.DJ = {
     { evento: "The Cosmic Renaissance Ball", lugar: "House of Cosmic", liga: "https://houseofcosmic.com", anio: 2024 },
     { evento: "Super Graphic Ultra Mega Ball with Mich", lugar: "House of Cosmic", liga: "https://houseofcosmic.com", anio: 2024 },
     { evento: "Fugaz Mini Ball", lugar: "House of Cosmic", liga: "https://houseofcosmic.com", anio: 2023 }
-  ],
-
-  canciones: [
-    // { cancion: "Nombre", artista: "Artista" },
   ]
 };
