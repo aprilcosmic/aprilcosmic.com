@@ -1,13 +1,9 @@
 /* ==========================================================
    AprilCosmic.com
-   Tipografía: BB Manual Mono Pro Original
-   (revisar licencia web antes de publicar)
+   Tipografía: Geist Mono (licencia OFL, ver assets/fonts/OFL-GeistMono.txt)
    ========================================================== */
 
-@font-face { font-family: "BB Manual Mono"; src: url("../fonts/bbmanualmono-original-regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "BB Manual Mono"; src: url("../fonts/bbmanualmono-original-medium.otf") format("opentype"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "BB Manual Mono"; src: url("../fonts/bbmanualmono-original-bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
-@font-face { font-family: "BB Manual Mono"; src: url("../fonts/bbmanualmono-original-super.otf") format("opentype"); font-weight: 800; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("../fonts/GeistMono-Variable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
 
 :root {
   --claro: #F7F7F7;
@@ -27,7 +23,7 @@ body {
   margin: 0;
   background: var(--claro);
   color: var(--tinta);
-  font-family: "BB Manual Mono", ui-monospace, Menlo, monospace;
+  font-family: "Geist Mono", ui-monospace, Menlo, monospace;
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -268,7 +264,7 @@ td.pendiente { color: var(--gris); }
    ========================================================== */
 
 /* 1. Titulares: cada línea sube desde detrás de una máscara */
-.linea-mascara { display: block; overflow: hidden; padding-bottom: .04em; margin-bottom: -.04em; }
+.linea-mascara { display: block; overflow: hidden; padding: .14em 0 .04em; margin: -.14em 0 -.04em; }
 .linea-mascara > span { display: block; transform: translateY(105%); }
 .listo .linea-mascara > span,
 .visto .linea-mascara > span { transform: none; transition: transform 1.1s var(--ease); }
@@ -363,3 +359,14 @@ body.saliendo { opacity: 0; transition: opacity .35s ease; }
 .hechas-lista .track:first-of-type .cancion { font-size: clamp(28px, 3.4vw, 48px); line-height: .9; }
 .version-t { margin: 8px 0 0; text-transform: none; letter-spacing: .03em; }
 .nota-t { margin: 6px 0 0; font-size: 15px; max-width: 52ch; }
+
+/* ---------- Inicio: solo nombre, oficios y foto ---------- */
+.oficios-fila { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 32px; margin: 24px 0 56px; }
+.inicio-foto { max-width: 560px; margin: 0 auto; }
+.inicio-solo .pie { border-top-color: var(--linea-clara); }
+
+/* ---------- Fotos: en celular siempre a color (no hay cursor para colorearlas) ---------- */
+@media (hover: none), (pointer: coarse), (max-width: 760px) {
+  .foto img { filter: none; }
+  .foto-gal img { filter: none; }
+}
