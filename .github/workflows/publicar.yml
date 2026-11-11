@@ -17,21 +17,18 @@ concurrency:
 jobs:
   construir:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Preparar sitio, reducir fotos y armar la galería
         run: |
-          command -v mogrify >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq imagemagick)
-          mkdir -p _site
-          rsync -a --exclude '.git' --exclude '.github' --exclude '_site' --exclude 'config-github' ./ _site/
-          cd _site
-          shopt -s nullglob nocaseglob
-          for f in fotos/galeria/*.{jpg,jpeg,png,webp}; do
-            mogrify -auto-orient -resize '1600x1600>' -quality 82 -strip "$f"
-          done
-          python3 scripts/galeria.py
-          rm -rf scripts fotos/galeria/LEEME.txt
+          pip install --quiet pillow
+          python scripts/construir.py
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
