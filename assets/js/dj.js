@@ -19,13 +19,14 @@
 */
 window.DJ = {
   mix: {
-    url: "https://soundcloud.com/aprilcosmic",
+    url: "",
     titulo: "",
     texto: "",
     texto_en: ""
   },
 
   tocadas: [
+    { evento: "El Bailongo: Fantasía Queer", lugar: "Festival Un Desierto para la Danza, ISC", mes: 11, anio: 2026 },
     { evento: "Pre Pride Party", lugar: "Just Fly", mes: 5, anio: 2025 },
     { evento: "The Gallery", lugar: "Lisztomaniac", mes: 12, anio: 2024 },
     { evento: "Queer Spooky Party", lugar: "Just Fly", mes: 10, anio: 2024 },
